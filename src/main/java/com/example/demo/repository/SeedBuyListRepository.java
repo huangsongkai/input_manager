@@ -16,6 +16,4 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public interface SeedBuyListRepository extends BaseRepository<SeedBuyList, Long> {
     @PreAuthorize("hasRole('ROLE_ADMIN') or #username == authentication?.name")
     public Page<SeedBuyList> findByUsername(@Param("username") String username, Pageable pageable);
-    @PreAuthorize("hasRole('ROLE_ADMIN') or #seedBuyList.username == authentication?.name")
-    public SeedBuyList save(SeedBuyList seedBuyList);
-}  
+}

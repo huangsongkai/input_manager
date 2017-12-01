@@ -16,6 +16,4 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public interface PesticidesBuyListRepository extends BaseRepository<PesticidesBuyList, Long> {
     @PreAuthorize("hasRole('ROLE_ADMIN') or #username == authentication?.name")
     public Page<PesticidesBuyList> findByUsername(@Param("username") String username, Pageable pageable);
-    @PreAuthorize("hasRole('ROLE_ADMIN') or #pesticidesBuyList.username == authentication?.name")
-    public PesticidesBuyList save(PesticidesBuyList pesticidesBuyList);
-}  
+}

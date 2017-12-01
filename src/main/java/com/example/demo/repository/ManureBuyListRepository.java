@@ -16,6 +16,4 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public interface ManureBuyListRepository extends BaseRepository<ManureBuyList, Long> {
     @PreAuthorize("hasRole('ROLE_ADMIN') or #username == authentication?.name")
     public Page<ManureBuyList> findByUsername(@Param("username") String username, Pageable pageable);
-    @PreAuthorize("hasRole('ROLE_ADMIN') or #manureBuyList.username == authentication?.name")
-    public ManureBuyList save(ManureBuyList manureBuyList);
-}  
+}
